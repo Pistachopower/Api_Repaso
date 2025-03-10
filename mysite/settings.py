@@ -134,7 +134,9 @@ STATIC_ROOT = BASE_DIR / 'static'
 #CODIGO PARA OAUTH2
 #PERMISOS DE LOS USUARIOS
 OAUTH2_PROVIDER = {
-    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Acceso a los grupos'}
+    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Acceso a los grupos'},
+
+    "ACCESS_TOKEN_EXPIRE_SECONDS": 5000000000 #duracion del token
 }
 
 REST_FRAMEWORK = {
