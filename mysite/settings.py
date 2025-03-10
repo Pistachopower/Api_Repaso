@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'aplicacionMovil',
     'django_seed',
+    'oauth2_provider',
     'rest_framework',
+    
 ]
 
 MIDDLEWARE = [
@@ -127,3 +129,22 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 STATIC_ROOT = BASE_DIR / 'static'
+
+
+#CODIGO PARA OAUTH2
+#PERMISOS DE LOS USUARIOS
+OAUTH2_PROVIDER = {
+    'SCOPES': {'read': 'Read scope', 'write': 'Write scope', 'groups': 'Acceso a los grupos'}
+}
+
+REST_FRAMEWORK = {
+    #Aquí estamos diciendo que usaremos OAuth2Authentication, lo que significa que los usuarios deben enviar un "token" para acceder
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    ),
+
+    #Aquí estamos diciendo que solo los usuarios autenticados (IsAuthenticated) pueden usar la API.
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
