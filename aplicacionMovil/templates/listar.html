@@ -1,0 +1,7 @@
+{% for dato in aplicacion %}
+<h2>Nombre: {{ dato.nombre }}</h2>
+<h2>fechaCreacion: {{ dato.fechaCreacion }}</h2>
+
+{% empty %}
+    <p>No hay datos disponibles.</p>
+{% endfor %}
