@@ -9,6 +9,5 @@ def index(request):
 
 def AplicacionMovil_list(request):
    aplicacion= AplicacionMovil.objects.all()
-   
    return render(request, 'listar.html', {'aplicacion': aplicacion})
     
