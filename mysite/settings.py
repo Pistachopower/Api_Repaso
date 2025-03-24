@@ -28,6 +28,11 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1', '0.0.0.0']
 
 
+#TODO: INVENTIGAR AUTH_USER_MODEL Y DOCUMENTAR 
+#se agrega esto para la autenticacion de los usuarios
+AUTH_USER_MODEL = 'aplicacionMovil.Usuario'
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -114,7 +119,7 @@ TIME_ZONE = 'Europe/Madrid'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -150,3 +155,5 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',
     ),
 }
+
+
