@@ -25,9 +25,10 @@ urlpatterns = [
     path("comentario-nombre-editar/<int:comentario_id>/", comentario_editar_patch),
     
     path("texto-comentario/<int:comentario_id>/", obtener_comentario),
+    
+    path("comentario-editar/<int:comentario_id>/", comentario_editar_put),
     #uRaq65UrNk4dAL5tVY32ghrBvnfJzI
      
-    
     
     #sesiones
     #path('registrar/usuario',registrar_usuario.as_view()),

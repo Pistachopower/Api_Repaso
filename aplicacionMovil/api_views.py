@@ -108,6 +108,26 @@ def obtener_comentario(request, comentario_id):
     
     
     return Response(serializer.data)  
+
+
+#comentario_editar_put
+
+@api_view(['PUT'])
+def comentario_editar_put(request,comentario_id):
+    comentario = Comentario.objects.get(id=comentario_id)
+    
+    comentarioCreateSerializer = ComentariosSerializerCreate(data=request.data,instance=comentario)
+    
+    if comentarioCreateSerializer.is_valid():
+        try:
+            comentarioCreateSerializer.save()
+            return Response("Comentario EDITADO")
+        except serializers.ValidationError as error:
+            return Response(error.detail, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as error:
+            return Response(repr(error), status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    else:
+        return Response(comentarioCreateSerializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 
 
